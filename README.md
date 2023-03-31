@@ -13,8 +13,8 @@
 ### Installation
 After all requirements are satisfied:
 - Open up your terminal.
-- Clone this repository to your local machine with `git clone git@gitlab.com:ownbackup.git` in your terminal command.
-- Change your directory to the cloned project via `cd ds-qa-tests`
+- Clone this repository to your local machine with `https://github.com/BobIT37/webdriverio-ui-tests.git` in your terminal command.
+- Change your directory to the cloned project via `cd bobit-tests`
 - Type `npm install yarn -g` to your terminal and hit enter.
 - Type `yarn install` to your terminal and hit enter.
 
