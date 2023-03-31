@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  data-services-frontend:
+    container_name: data-services-frontend
+    platform: linux/amd64
+    build:
+      context: ../front-service
+      args:
+        NPM_TOKEN: $NPM_TOKEN
+    networks:
+      - webnet
+    ports:
+      - 80:80
+  ownbackup_ui_tests:
+    platform: linux/amd64
+    build:
+      context: .
+      args:
+        NPM_TOKEN: $NPM_TOKEN
+    container_name: ownbackup_ui_tests
+    environment:
+      - CI_JOB_ID
+      - prod=docker
+    healthcheck:
+      test: ["CMD", "curl" ,"-f","http://data-services-frontend:80"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    volumes:
+      - ./report/:/app/report/
+    networks:
+      - webnet
+  
+networks:
+  webnet:
+    driver: bridge
+    

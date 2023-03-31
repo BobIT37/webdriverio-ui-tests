@@ -1,0 +1,81 @@
+
+Execution of 1 workers started at 2023-03-17T15:56:31.532Z
+
+2023-03-17T15:56:31.586Z INFO @wdio/cli:launcher: Run onPrepare hook
+2023-03-17T15:56:34.278Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2023-03-17T15:56:34.279Z INFO @wdio/local-runner: Start worker 0-0 with arg: run,wdio.conf.ts,chrome
+[0-0] 2023-03-17T15:56:34.745Z INFO @wdio/local-runner: Run worker command: run
+[0-0] 2023-03-17T15:56:34.893Z INFO wdio-multiple-cucumber-html-reporter: The 'jsonFolder' was not set, it has been set to the default '.tmp/json/'
+[0-0] 2023-03-17T15:56:34.893Z INFO wdio-multiple-cucumber-html-reporter: The 'language' was not set, it has been set to the default 'en'
+[0-0] 2023-03-17T15:56:34.893Z INFO wdio-multiple-cucumber-html-reporter: The 'reportFilePerRetry' was not set, it has been set to the default 'true'
+[0-0] RUNNING in chrome - file:///test/features/ui-tests/homepage_feat.feature
+[0-0] 2023-03-17T15:56:35.106Z INFO webdriver: Initiate new session using the WebDriver protocol
+[0-0] 2023-03-17T15:56:35.151Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session
+[0-0] 2023-03-17T15:56:35.151Z INFO webdriver: DATA {
+[0-0]   capabilities: {
+[0-0]     alwaysMatch: { browserName: 'chrome', 'goog:chromeOptions': [Object] },
+[0-0]     firstMatch: [ {} ]
+[0-0]   },
+[0-0]   desiredCapabilities: { browserName: 'chrome', 'goog:chromeOptions': { args: [Array] } }
+[0-0] }
+[0-0] [[32mINFO[39m]: Browser is opening...
+[0-0] Before opening the browser
+[0-0] 2023-03-17T15:56:53.305Z INFO webdriver: COMMAND navigateTo("http://localhost:8000/")
+[0-0] 2023-03-17T15:56:53.305Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/url
+[0-0] 2023-03-17T15:56:53.306Z INFO webdriver: DATA { url: 'http://localhost:8000/' }
+[0-0] 2023-03-17T15:56:56.385Z INFO webdriver: RESULT null
+[0-0] 2023-03-17T15:56:56.385Z INFO webdriver: COMMAND setTimeouts(15000, 1000, undefined)
+[0-0] 2023-03-17T15:56:56.386Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/timeouts
+[0-0] 2023-03-17T15:56:56.386Z INFO webdriver: DATA { implicit: 15000, pageLoad: 1000 }
+[0-0] 2023-03-17T15:56:56.400Z INFO webdriver: RESULT null
+[0-0] 2023-03-17T15:56:56.400Z INFO webdriver: COMMAND maximizeWindow()
+[0-0] 2023-03-17T15:56:56.401Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/window/maximize
+[0-0] 2023-03-17T15:56:57.019Z INFO webdriver: RESULT { height: 1003, width: 1728, x: 0, y: 38 }
+[0-0] 2023-03-17T15:56:57.020Z INFO webdriver: COMMAND getUrl()
+[0-0] 2023-03-17T15:56:57.020Z INFO webdriver: [GET] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/url
+[0-0] 2023-03-17T15:56:57.046Z INFO webdriver: RESULT http://localhost:8000/
+[0-0] 2023-03-17T15:56:57.047Z INFO webdriver: COMMAND getTitle()
+[0-0] 2023-03-17T15:56:57.047Z INFO webdriver: [GET] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/title
+[0-0] 2023-03-17T15:56:57.061Z INFO webdriver: RESULT bobit.us
+[0-0] Url  http://localhost:8000/
+[0-0] bobit.us
+[0-0] After opening the browser
+[0-0]  Text: Welcome!
+[0-0] 2023-03-17T15:56:59.074Z INFO webdriver: COMMAND findElement("xpath", ".//h3[normalize-space() = "Welcome!"]")
+[0-0] 2023-03-17T15:56:59.075Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/element
+[0-0] 2023-03-17T15:56:59.075Z INFO webdriver: DATA { using: 'xpath', value: './/h3[normalize-space() = "Welcome!"]' }
+[0-0] 2023-03-17T15:56:59.211Z INFO webdriver: RESULT {
+[0-0]   'element-6066-11e4-a52e-4f735466cecf': '309964f4-51df-458b-995a-95c02e1d265d'
+[0-0] }
+[0-0] 2023-03-17T15:56:59.214Z INFO webdriver: COMMAND getElementText("309964f4-51df-458b-995a-95c02e1d265d")
+[0-0] 2023-03-17T15:56:59.214Z INFO webdriver: [GET] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612/element/309964f4-51df-458b-995a-95c02e1d265d/text
+[0-0] 2023-03-17T15:56:59.273Z INFO webdriver: RESULT Welcome!
+[0-0] 2023-03-17T15:57:00.279Z INFO webdriver: COMMAND deleteSession()
+[0-0] 2023-03-17T15:57:00.279Z INFO webdriver: [DELETE] http://localhost:4444/wd/hub/session/4dbcf12459f77c3db639481a522b2612
+[0-0] 2023-03-17T15:57:00.422Z INFO webdriver: RESULT null
+[0-0] PASSED in chrome - file:///test/features/ui-tests/homepage_feat.feature
+2023-03-17T15:57:00.534Z INFO @wdio/cli:launcher: Run onWorkerEnd hook
+2023-03-17T15:57:00.534Z INFO @wdio/cli:launcher: Run onComplete hook
+2023-03-17T15:57:00.848Z INFO @wdio/selenium-standalone-service: shutting down all browsers
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 111.0.5563.64 MAC #0-0] Running: chrome (v111.0.5563.64) on MAC
+[chrome 111.0.5563.64 MAC #0-0] Session ID: 4dbcf12459f77c3db639481a522b2612
+[chrome 111.0.5563.64 MAC #0-0]
+[chrome 111.0.5563.64 MAC #0-0] » /test/features/ui-tests/homepage_feat.feature
+[chrome 111.0.5563.64 MAC #0-0] Homepage Features
+[chrome 111.0.5563.64 MAC #0-0] This feature provides bobit.us ui features
+[chrome 111.0.5563.64 MAC #0-0]
+[chrome 111.0.5563.64 MAC #0-0]  Home Page access and verifying Welcome! text
+[chrome 111.0.5563.64 MAC #0-0]    ✓ Given I opened web page
+[chrome 111.0.5563.64 MAC #0-0]    ✓ Then I verified Welcome!
+[chrome 111.0.5563.64 MAC #0-0]
+[chrome 111.0.5563.64 MAC #0-0] 2 passing (7.2s)
+
+
+Spec Files:	 1 passed, 1 total (100% completed) in 00:00:29 
+
+2023-03-17T15:57:00.850Z INFO @wdio/local-runner: Shutting down spawned worker
+2023-03-17T15:57:01.100Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully
+2023-03-17T15:57:01.100Z INFO @wdio/local-runner: shutting down

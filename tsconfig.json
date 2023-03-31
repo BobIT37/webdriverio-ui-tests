@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "types": [
+      "node",
+      "@wdio/globals/types",
+      "expect-webdriverio",
+      "@wdio/cucumber-framework"
+    ],
+    "target": "es2022",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "#credentials": ["test.credentials.json"],
+      "#pages/*": ["test/page_objects/*.ts"],
+      "#base_page": ["test/base/base_page.ts"]
+    }
+  }
+}

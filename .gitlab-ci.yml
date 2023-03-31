@@ -1,0 +1,86 @@
+e2e-chrome:
+  image: docker:stable-git
+  stage: test
+  services:
+    - docker:dind
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+  rules:
+    - changes:
+        - bobit-tests/**/*
+  before_script:
+    - echo "Before script is starting"
+    - docker version
+    - apk add curl
+    - curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    - chmod +x /usr/local/bin/docker-compose
+    - docker-compose version
+  script:
+    - cd ds-qa-tests
+    - echo "chrome browser tests are starting"
+    - echo TARGET_BROWSER=chrome >> test.config.env
+    - docker-compose up -d bobit-us-frontend
+    - docker-compose up bobit_ui_tests
+    - docker stop $(docker ps -aq)
+  artifacts:
+    when: always
+    paths:
+      - bobit-tests/report/
+  tags:
+    - $QA_RUNNER_TAG # tag comes from Gitlab Variables
+
+.e2e-edge:
+  image: docker:stable-git
+  stage: test
+  services:
+    - docker:dind
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+  rules:
+    - changes:
+        - bobit-tests/**/*
+  before_script:
+    - echo "Before script is starting"
+    - docker version
+  script:
+    - cd bobit-tests
+    - echo "Edge browser tests are starting"
+    - echo TARGET_BROWSER=edge >> test.config.env
+    - docker compose up
+  after_script:
+    - sh bobit-tests/get_artifact.sh
+  tags:
+    - $QA_RUNNER_TAG # tag comes from Gitlab Variables
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - bobit-tests/report/
+
+.muiltiple-browser:
+  image: docker:stable-git
+  services:
+    - docker:dind
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+  stage: test
+  rules:
+    - changes:
+        - bobit-tests/**/*
+  before_script:
+    - echo "Before script is starting"
+    - docker version
+  script:
+    - cd bobit-tests
+    - echo "chrome and edge tests are starting"
+    - echo TARGET_BROWSER=\"edge chrome\" >> test.config.env
+    - docker compose up
+  after_script:
+    - sh bobit-tests/get_artifact.sh
+  tags:
+    - $QA_RUNNER_TAG # tag comes from Gitlab Variables
+  allow_failure: true
+  artifacts:
+    when: always
+    paths:
+      - bobit-tests/report/
